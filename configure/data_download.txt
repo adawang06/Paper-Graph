@@ -1,0 +1,32 @@
+(1) Download data to EC2 instance
+(2) Transfer data in EC2 instance into S3 bucket using CLI
+
+
+Install cli on Mac:
+https://docs.aws.amazon.com/cli/latest/userguide/install-macos.html
+$ pip3 --version
+
+(1) Download and run the pip3 installation script provided by the Python Packaging Authority.
+
+$ curl -O https://bootstrap.pypa.io/get-pip.py
+$ python3 get-pip.py --user
+
+(2) Use your newly installed pip3 to install the AWS CLI. We recommend that if you use Python version 3+, that you use the pip3 command.
+
+$ pip3 install awscli --upgrade --user
+
+(3) Verify that the AWS CLI is installed correctly.
+
+
+
+Or use home-brew:
+
+brew install awscli --HEAD
+
+Configure AWS CLI credentials
+
+$ aws configureAWS Access Key ID [None]: XXXXXXX
+AWS Secret Access Key [None]: XXXXXXXXXX
+Default region name [None]: us-west-2
+Default output format [None]: json
+
