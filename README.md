@@ -1,5 +1,4 @@
-# Insight_Project_Visualization_Graph
-# Project Title
+# Visualization_Acaedmic_Graph
 
 One Paragraph of project description goes here
 
@@ -57,11 +56,16 @@ Give an example
 
 Add additional notes about how to deploy this on a live system
 
+## Data Source
+
+* [Semantic Scholar](https://api.semanticscholar.org/corpus/) - Over 45 million published research papers in Computer Science, Neuroscience, and Biomedical fields provided as an easy-to-use JSON archive.
+
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [PySpark](https://spark.apache.org/docs/2.3.0/api/python/pyspark.html) - PySpark is the Python API for Spark.
+* [Neo4j](https://neo4j.com/) - Graph database management system
+* [AWS_S3](https://aws.amazon.com/s3/) - Simple Storage Service is a service offered by Amazon Web Services
+* [PostgreSQL](https://www.postgresql.org/) -  Relational database management system
 
 ## Contributing
 
