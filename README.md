@@ -1,4 +1,4 @@
-# Visualization_Academic_Graph
+# Paper Graph
 
 One Paragraph of project description goes here
 
