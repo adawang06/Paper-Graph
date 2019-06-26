@@ -5,6 +5,7 @@ from pyspark.sql.functions import udf, struct, col, rank
 from pyspark.sql import SQLContext
 from pyspark import SparkContext
 from pyspark.sql.session import SparkSession
+from pyspark.sql.functions import explode
 
 sc = SparkContext.getOrCreate()
 spark = SparkSession(sc)
@@ -86,7 +87,7 @@ df = drop_values(df)
 
 df.createOrReplaceTempView("filtered_df")
 df.printSchema()
-c = spark.sql("SELECT * FROM filtered_df")
+results = spark.sql("SELECT * FROM filtered_df")
 results.show()
 
 
