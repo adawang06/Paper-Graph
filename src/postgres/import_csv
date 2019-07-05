@@ -1,0 +1,8 @@
+postgres=# create database citation_pairs;
+postgres=# \l;
+postgres=# \c citation_pairs;
+
+citation_pairs=# create schema citation_pairs_schema;
+citation_pairs=# create table citation_pairs_schema.table1(id CHAR(50), citations_list CHAR(50))
+citation_pairs=# select * from pg_catalog.pg_tables;
+citation_pairs=# \copy citation_pairs_schema.table1 FROM '~/citation_pairs_1.csv' DELIMITERS ',' CSV;
