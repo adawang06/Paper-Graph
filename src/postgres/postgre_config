@@ -1,0 +1,8 @@
+check host and port:
+
+$ sudo netstat -plunt |grep postgres
+
+change password:
+
+$ sudo -u postgres psql postgres
+postgres=# \password postgres
