@@ -6,3 +6,29 @@ change password:
 
 $ sudo -u postgres psql postgres
 postgres=# \password postgres
+
+
+allow postgre connected by remote machines(e.g: flask, spark)
+
+$ cd /etc/postgresql/10/main/
+
+open file named postgresql.conf
+
+$ sudo nano postgresql.conf
+
+add this line to that file:
+
+listen_addresses = '*'
+
+then open file named pg_hba.conf:
+
+$ sudo nano pg_hba.conf
+
+add this line to that file:
+
+host  all  all 0.0.0.0/0 md5
+
+restart the server:
+
+sudo /etc/init.d/postgresql restart
+
