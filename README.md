@@ -66,6 +66,8 @@ Add additional notes about how to deploy this on a live system
 * [Neo4j](https://neo4j.com/) - Graph database management system
 * [AWS_S3](https://aws.amazon.com/s3/) - Simple Storage Service is a service offered by Amazon Web Services
 * [PostgreSQL](https://www.postgresql.org/) -  Relational database management system
+![image](https://user-images.githubusercontent.com/35754641/60793938-8c364080-a11d-11e9-9999-06f3a667f9c5.png)
+
 
 ## Contributing
 
@@ -75,11 +77,10 @@ Please read [CONTRIBUTING.md](https://www.google.com/) for details on our code o
 
 We use [SemVer](https://www.google.com/) for versioning. For the versions available, see the [tags on this repository](https://www.google.com/). 
 
-## Authors
+## Author
 
-* **Da Wang** - *Initial work* - [Visualization_Academic_Graph](https://www.google.com/)
+* **Da Wang** - *Initial work* - [Paper Graph](http://deproject.club)
 
-See also the list of [contributors](https://www.google.com/) who participated in this project.
 
 ## License
 
