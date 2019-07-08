@@ -1,6 +1,14 @@
 # Paper Graph
 
-One Paragraph of project description goes here
+• Built a distributed big data pipeline on AWS to facilitate data collection and graph annotation for Open Research Corpus Dataset with 45 Millions academic research papers. The pipeline allowed researchers to identify the mostimportant papers related to their papers of interest. 
+
+• Designed a multi-node Spark cluster-computing framework processing modules. Applied minHash locality sensitive hashing algorithm to compare similarities between papers, optimized Pyspark jobs performance by tuning and comparing different Spark operations-transformations and user defined functions (UDF).
+
+• Deployed a Neo4j database to store graph-based relationship between academic papers, including citation relation- ships and also similarity relationships, Neo4j database supported front-end query demands for graph illustration.
+
+## Demo
+* [Paper Graph](http://deproject.club)
+* [video](https://www.youtube.com/watch?v=wckz3nzaRNw&feature=youtu.be)
 
 ## Getting Started
 
@@ -56,6 +64,7 @@ Give an example
 
 Add additional notes about how to deploy this on a live system
 
+
 ## Data Source
 
 * [Semantic Scholar](https://api.semanticscholar.org/corpus/) - Over 45 million published research papers in Computer Science, Neuroscience, and Biomedical fields provided as an easy-to-use JSON archive.
@@ -73,9 +82,6 @@ Add additional notes about how to deploy this on a live system
 
 Please read [CONTRIBUTING.md](https://www.google.com/) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Versioning
-
-We use [SemVer](https://www.google.com/) for versioning. For the versions available, see the [tags on this repository](https://www.google.com/). 
 
 ## Author
 
