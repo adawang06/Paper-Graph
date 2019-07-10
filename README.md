@@ -26,17 +26,44 @@ Give examples
 
 A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
+• 1. Setup AWS cluster
 
 ```
 Give the example
 ```
 
-And repeat
+• 2. Set up Spark
 
 ```
 until finished
 ```
+
+• 3. Set up PostgreSQL
+
+```
+until finished
+```
+
+• 4. Set up Neo4j(Neo4j 3.1.4)
+```
+1. Open port 7687 for bolt, 7474 for Neo4j browser
+2. Get Java8 (Java 10 is not compatible with Neo4j version 3.1.4)
+   $ java -showversion
+   $ sudo add-apt-repository ppa:webupd8team/java // we need to run this command for install java.
+   $ sudo apt-get update // using this command all dependency will be updated
+   $ sudo apt-get install oracle-java8-installer // now using this command java will be installed
+   $ sudo apt-get update // using this command all dependency will be updated
+   $ sudo apt install openjdk-8-jre-headless
+3. After installing java now we will start the installation process for neo4j
+   $ wget -O - https://debian.neo4j.org/neotechnology.gpg.key | sudo apt-key add -
+   $ echo 'deb http://debian.neo4j.org/repo stable/' >/tmp/neo4j.list
+   $ sudo mv /tmp/neo4j.list /etc/apt/sources.list.d
+   $ sudo apt-get update // using this command all dependency will be updated
+4. After completing installation process restart your neo4j service using below command.
+   $ sudo service neo4j restart
+```
+
+
 
 End with an example of getting some data out of the system or using it for a little demo
 
@@ -62,8 +89,10 @@ Give an example
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
-
+Add additional notes about how to deploy this on a live system(Nginx)
+```
+Give an example
+```
 
 ## Data Source
 
@@ -90,7 +119,7 @@ Please read [CONTRIBUTING.md](https://www.google.com/) for details on our code o
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](https://opensource.org/licenses/MIT) file for details
 
 ## Acknowledgments
 
