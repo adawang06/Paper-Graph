@@ -26,25 +26,36 @@ Give examples
 
 A step by step series of examples that tell you how to get a development env running
 
-• 1. Setup AWS cluster
 
-```
-Give the example
-```
-
-• 2. Set up Spark
+• 1. Set up Spark
 
 ```
 until finished
 ```
 
-• 3. Set up PostgreSQL
+• 2. Set up PostgreSQL
 
 ```
-until finished
+1. check host and port:
+   $ sudo netstat -plunt |grep postgres
+   change password:
+   $ sudo -u postgres psql postgres
+   postgres=# \password postgres
+2. allow postgre connected by remote machines(e.g: flask, spark)
+   $ cd /etc/postgresql/10/main/
+3. open file named postgresql.conf
+   $ sudo nano postgresql.conf
+4. add this line to that file:
+   listen_addresses = '*'
+   then open file named pg_hba.conf:
+   $ sudo nano pg_hba.conf
+   add this line to that file:
+   host  all  all 0.0.0.0/0 md5
+5. restart the server:
+   $ sudo /etc/init.d/postgresql restart
 ```
 
-• 4. Set up Neo4j(Neo4j 3.1.4)
+• 3. Set up Neo4j(Neo4j 3.1.4)
 ```
 1. Open port 7687 for bolt, 7474 for Neo4j browser
 2. Get Java8 (Java 10 is not compatible with Neo4j version 3.1.4)
