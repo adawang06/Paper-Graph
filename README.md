@@ -151,7 +151,30 @@ Give an example
 
 Add additional notes about how to deploy this on a live system(Nginx)
 ```
-Give an example
+1. Install npm, gunicorn and pm2
+   $ sudo apt-get intall nginx python-pip nodejs npm  
+   $ sudo pip install flask gunicorn  
+   $ sudo npm install pm2  
+2. Configure Nginx proxy for Flask application. Add following code in /etc/nginx/sites-available/default file:
+   
+   server {  
+    listen 80;
+    listen [::]:80;
+    server_name www.mydomain.com mydomain.com;
+    location / {
+        proxy_pass http://127.0.0.1:8080;                                                                                                                                
+    }
+}
+
+3. Creat bash file for gunicorn execution, start application with Gunicorn using 10 workers. Create and add following code in start_site.sh.
+   gunicorn -w 10 hello_world:app
+
+4. start the application with PM2 (production process manager)
+   $ sudo pm2 start start_site.sh
+   
+5. ensure pm2 will restart if server restarts.
+   $ pm2 startup
+   $ pm2 save
 ```
 
 ## Data Source
