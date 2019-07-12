@@ -27,10 +27,59 @@ Give examples
 A step by step series of examples that tell you how to get a development env running
 
 
-• 1. Set up Spark
+• 1. Set up Spark (Spark 2.4.3)
 
 ```
-until finished
+1. install open JDK 8, which Spark 2.4.3 supports
+    $ sudo apt update
+    $ sudo apt install openjdk-8-jre-headless
+Java 8 folder: /usr/lib/jvm/java-8-openjdk-amd64/
+2. check java version after installed java 8:
+ubuntu@ip-10-0-0-6:~$ sudo update-alternatives --config java
+There are 2 choices for the alternative java (providing /usr/bin/java).
+
+  Selection    Path                                            Priority   Status
+------------------------------------------------------------
+  0            /usr/lib/jvm/java-11-openjdk-amd64/bin/java      1111      auto mode
+  1            /usr/lib/jvm/java-11-openjdk-amd64/bin/java      1111      manual mode
+* 2            /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java   1081      manual mode
+
+3. set default java version in Spark machine at java 8, not 11
+	•	Modify /usr/local/spark/conf/spark-env.sh, set JAVA path
+	•	.bash_profile: change export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/
+4. check spark version before installing jars needed
+ubuntu@ip-10-0-0-6:~$ spark-submit --version
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /___/ .__/\_,_/_/ /_/\_\   version 2.4.3
+      /_/
+                        
+Using Scala version 2.11.12, OpenJDK 64-Bit Server VM, 1.8.0_212
+Branch 
+Compiled by user  on 2019-05-01T05:08:38Z
+Revision 
+Url 
+Type --help for more information.
+5. install jars needed for spark 2.4.3
+	•	create a folder under /usr/local/spark called lib 
+/usr/local/spark$ sudo mkdir lib
+	•	Make the folder readable(writable):
+/usr/local/spark$ sudo chmod -R 777 lib/
+	•	move jars needed to that folder:
+    - wget http://central.maven.org/maven2/com/amazonaws/aws-java-sdk/1.7.4/aws-java-sdk-1.7.4.jar
+    - wget http://central.maven.org/maven2/org/apache/hadoop/hadoop-aws/2.7.1/hadoop-aws-2.7.1.jar
+
+	•	change spark default conf file:
+	•	add the following lines to spark-defaults.conf:
+    - spark.executor.extraClassPath /usr/local/spark/lib/aws-java-sdk-1.7.4.jar:/usr/local/spark/lib/hadoop-aws-2.7.1.jar
+    - spark.driver.extraClassPath /usr/local/spark/lib/aws-java-sdk-1.7.4.jar:/usr/local/spark/lib/hadoop-aws-2.7.1.jar
+6. add AWS credentials to the env
+    - export AWS_ACCESS_KEY_ID=xxxxx
+    - export AWS_SECRET_ACCESS_KEY=xxxxxx
+	•	restart spark
+   $ sh /usr/local/spark/sbin/start-all.sh
 ```
 
 • 2. Set up PostgreSQL
@@ -115,8 +164,7 @@ Give an example
 * [Neo4j](https://neo4j.com/) - Graph database management system
 * [AWS_S3](https://aws.amazon.com/s3/) - Simple Storage Service is a service offered by Amazon Web Services
 * [PostgreSQL](https://www.postgresql.org/) -  Relational database management system
-![image](https://user-images.githubusercontent.com/35754641/60793938-8c364080-a11d-11e9-9999-06f3a667f9c5.png)
-
+<img width="945" alt="new_tech_stack" src="https://user-images.githubusercontent.com/35754641/61095812-cba8a980-a409-11e9-9a7d-2fbf55450915.png">
 
 ## Contributing
 
