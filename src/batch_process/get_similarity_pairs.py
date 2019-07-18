@@ -78,6 +78,7 @@ df = adding_titles(df)
 df = drop_values(df)
 
 df.show()
+df.cache()
 
 from pyspark.ml import Pipeline
 from pyspark.ml.feature import RegexTokenizer, NGram, HashingTF, MinHashLSH
@@ -87,6 +88,7 @@ model = Pipeline(stages = [RegexTokenizer(pattern = "", inputCol = "title", outp
                            NGram(n = 3, inputCol = "tokens", outputCol = "ngrams"),HashingTF(inputCol = "ngrams", outputCol = "vectors"), MinHashLSH(inputCol = "vectors", outputCol = "lsh", numHashTables = 10)]).fit(df)
 
 df_hashed = model.transform(df)
+
 
 df_matches = model.stages[-1].approxSimilarityJoin(df_hashed, df_hashed, 0.9)
 
